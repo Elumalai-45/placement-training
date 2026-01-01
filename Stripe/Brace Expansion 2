@@ -1,0 +1,19 @@
+a, b, c = [], [], []
+exp = input().strip()
+for i in range(len(exp)):
+    v = exp[i]
+    if v.isalpha():
+        c = [x + v for x in c or ['']]
+    elif v == '{':
+        a.append(b)
+        a.append(c)
+        b, c = [], []
+    elif v == '}':
+        t = a.pop()
+        u = a.pop()
+        c = [j + i for i in b + c for j in t or ['']]
+        b = u
+    elif v == ',':
+        b += c
+        c = []
+print(sorted(set(b + c)))
