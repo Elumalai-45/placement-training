@@ -1,0 +1,11 @@
+a = input().strip()
+b = input().strip().split()
+c = a.split(",")
+d = []
+e = set(b)
+for i in c:
+    i = i.strip()
+    if i in e:
+        d.append(i)
+for i in d:
+    print(i)
