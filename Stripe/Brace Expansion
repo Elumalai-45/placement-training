@@ -1,0 +1,30 @@
+s=input()
+options = []
+i = 0
+n = len(s)
+while i<n:
+    if s[i] == '{':
+        i += 1
+        temp = []
+        while s[i] != '}':
+            if s[i] != ',':
+                temp.append(s[i])
+            i += 1
+        options.append(sorted(temp))  
+    else:
+        options.append([s[i]])
+    i+=1
+res=[]
+def dfs(h,ss,ii):
+    if ii==v:
+        res.append(ss)
+        return
+    for ij in h[ii]:
+        dfs(h,ss+ij,ii+1)
+    
+v=len(options)
+
+print(options)
+dfs(options,"",0)
+print(res)
+
