@@ -1,0 +1,17 @@
+a = input().strip()
+b = 0
+for i in a:
+    if i == 'Y':
+        b += 1
+c = b
+d = 0
+e = 0
+for i in range(len(a)):
+    if a[i] == 'Y':
+        b -= 1
+    else:
+        b += 1
+    if b < c:
+        c = b
+        d = i + 1
+print(d)
