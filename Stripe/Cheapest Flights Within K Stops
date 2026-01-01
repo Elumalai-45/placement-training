@@ -1,0 +1,19 @@
+a = int(input())
+b = int(input())
+c = []
+for i in range(b):
+    x, y, z = map(int, input().split())
+    c.append((x, y, z))
+d, e, f = map(int, input().split())
+g = [10**18] * a
+g[d] = 0
+for i in range(f + 1):
+    h = g[:]
+    for x, y, z in c:
+        if g[x] != 10**18 and g[x] + z < h[y]:
+            h[y] = g[x] + z
+    g = h
+if g[e] == 10**18:
+    print(-1)
+else:
+    print(g[e])
