@@ -1,0 +1,24 @@
+
+n = int(input())
+b = int(input())
+c = []
+for i in range(b):
+    x, y = map(int, input().split())
+    c.append([x, y])
+d = list(map(int, input().split()))
+e = defaultdict(list)
+for x, y in c:
+    e[y].append(x)
+f = {}
+def dfs(g):
+    if g in f:
+        return f[g]
+    h = 0
+    for i in e[g]:
+        h = max(h, dfs(i))
+    f[g] = h + d[g - 1]
+    return f[g]
+cc = 0
+for i in range(1, n + 1):
+    cc = max(c, dfs(i))
+print(cc)
